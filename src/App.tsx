@@ -2,14 +2,16 @@ import Todos from "./components/Todos";
 import ActionsBar from "./components/ActionsBar.tsx";
 import AddTodo from "./components/AddTodo.tsx";
 
+const titleStyle = { marginTop: '1rem' };
+
 function App() {
   return (
-    <div>
-      <h2>Todos</h2>
+    <main className="container">
+      <h1 style={titleStyle}>Todos</h1>
       <AddTodo />
-      <Todos />
       <ActionsBar />
-    </div>
+      <Todos />
+    </main>
   );
 }
 

@@ -2,6 +2,7 @@
   "version": "4",
   "specifiers": {
     "npm:@eslint/js@^9.13.0": "9.13.0",
+    "npm:@picocss/pico@^2.0.6": "2.0.6",
     "npm:@types/react-dom@^18.3.1": "18.3.1",
     "npm:@types/react@^18.3.11": "18.3.12",
     "npm:@vitejs/plugin-react-swc@^3.5.0": "3.7.1_vite@5.4.10",
@@ -9,6 +10,8 @@
     "npm:eslint-plugin-react-refresh@~0.4.13": "0.4.14_eslint@9.13.0",
     "npm:eslint@^9.13.0": "9.13.0",
     "npm:globals@^15.11.0": "15.11.0",
+    "npm:mobx-react-lite@^4.0.7": "4.0.7_mobx@6.13.5_react@18.3.1",
+    "npm:mobx@^6.13.5": "6.13.5",
     "npm:react-dom@^18.3.1": "18.3.1_react@18.3.1",
     "npm:react@^18.3.1": "18.3.1",
     "npm:typescript-eslint@^8.10.0": "8.11.0_@typescript-eslint+parser@8.11.0__eslint@9.13.0__typescript@5.6.3_eslint@9.13.0_typescript@5.6.3",
@@ -164,6 +167,9 @@
         "@nodelib/fs.scandir",
         "fastq"
       ]
+    },
+    "@picocss/pico@2.0.6": {
+      "integrity": "sha512-/d8qsykowelD6g8k8JYgmCagOIulCPHMEc2NC4u7OjmpQLmtSetLhEbt0j1n3fPNJVcrT84dRp0RfJBn3wJROA=="
     },
     "@rollup/rollup-android-arm-eabi@4.24.0": {
       "integrity": "sha512-Q6HJd7Y6xdB48x8ZNVDOqsbh2uByBhgK8PiQgPhwkIw/HC/YX5Ghq2mQY5sRMZWHb3VsFkWooUVOZHKr7DmDIA=="
@@ -764,6 +770,17 @@
         "brace-expansion@2.0.1"
       ]
     },
+    "mobx-react-lite@4.0.7_mobx@6.13.5_react@18.3.1": {
+      "integrity": "sha512-RjwdseshK9Mg8On5tyJZHtGD+J78ZnCnRaxeQDSiciKVQDUbfZcXhmld0VMxAwvcTnPEHZySGGewm467Fcpreg==",
+      "dependencies": [
+        "mobx",
+        "react",
+        "use-sync-external-store"
+      ]
+    },
+    "mobx@6.13.5": {
+      "integrity": "sha512-/HTWzW2s8J1Gqt+WmUj5Y0mddZk+LInejADc79NJadrWla3rHzmRHki/mnEUH1AvOmbNTZ1BRbKxr8DSgfdjMA=="
+    },
     "ms@2.1.3": {
       "integrity": "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="
     },
@@ -948,6 +965,12 @@
         "punycode"
       ]
     },
+    "use-sync-external-store@1.2.2_react@18.3.1": {
+      "integrity": "sha512-PElTlVMwpblvbNqQ82d2n6RjStvdSoNe9FG28kNfz3WiXilJm4DdNkEzRhCZuIDwY8U08WVihhGR5iRqAwfDiw==",
+      "dependencies": [
+        "react"
+      ]
+    },
     "vite@5.4.10": {
       "integrity": "sha512-1hvaPshuPUtxeQ0hsVH3Mud0ZanOLwVTneA1EgbAM5LhaZEqyPWGRQ7BtaMvUrTDeEaC8pxtj6a6jku3x4z6SQ==",
       "dependencies": [
@@ -974,6 +997,7 @@
     "packageJson": {
       "dependencies": [
         "npm:@eslint/js@^9.13.0",
+        "npm:@picocss/pico@^2.0.6",
         "npm:@types/react-dom@^18.3.1",
         "npm:@types/react@^18.3.11",
         "npm:@vitejs/plugin-react-swc@^3.5.0",

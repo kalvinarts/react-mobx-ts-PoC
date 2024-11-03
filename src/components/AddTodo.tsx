@@ -11,7 +11,7 @@ const AddTodo = observer(function AddTodo() {
   };
 
   return (
-    <div>
+    <fieldset role="group">
       <input
         type="text"
         value={store.todoText}
@@ -19,9 +19,9 @@ const AddTodo = observer(function AddTodo() {
         onKeyUp={handleKeyPress}
       />
       <button onClick={store.addTodo}>
-        Add Todo
+        Add
       </button>
-    </div>
+    </fieldset>
   );
 });
 

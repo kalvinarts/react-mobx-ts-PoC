@@ -5,10 +5,10 @@ const ActionsBar = observer(function ActionsBar() {
   const store = useStore();
 
   return (
-    <div>
+    <fieldset className="grid">
       <button onClick={store.loadTodos}>Load</button>
       <button onClick={store.saveTodos}>Save</button>
-    </div>
+    </fieldset>
   );
 });
 
