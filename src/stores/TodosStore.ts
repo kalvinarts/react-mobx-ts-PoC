@@ -8,29 +8,26 @@ type Todo = {
 
 class Todos {
   public todos: Todo[] = [];
-  public todoText: string = "";
+  private autoSave = true
 
-  constructor() {
+  constructor(autosave = true) {
     makeAutoObservable(this);
+    this.autoSave = autosave;
     this.loadTodos();
     return this;
   }
 
-  setTodoText = (text: string) => {
-    this.todoText = text;
-  };
-
-  addTodo = () => {
-    if (!this.todoText) {
+  addTodo = (todoText: string) => {
+    if (!todoText) {
       return;
     }
     const newTodo: Todo = {
       id: Date.now(),
-      text: this.todoText,
+      text: todoText,
       done: false,
     };
     this.todos.push(newTodo);
-    this.todoText = "";
+    if (this.autoSave) this.saveTodos();
   };
 
   toggleTodo = (id: number) => {
@@ -39,6 +36,7 @@ class Todos {
       return;
     }
     todo.done = !todo.done;
+    if (this.autoSave) this.saveTodos();
   };
 
   editTodo = (id: number, text: string) => {
@@ -47,10 +45,12 @@ class Todos {
       return;
     }
     todo.text = text;
+    if (this.autoSave) this.saveTodos();
   };
 
   removeTodo = (id: number) => {
     this.todos = this.todos.filter((todo) => todo.id !== id);
+    if (this.autoSave) this.saveTodos();
   };
 
   loadTodos = () => {

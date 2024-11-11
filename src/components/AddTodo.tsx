@@ -4,24 +4,32 @@ import { useStore } from "../providers/StoreProvider";
 const AddTodo = observer(function AddTodo() {
   const store = useStore();
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      store.addTodo();
-    }
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const todoText = Array.from((e.target as HTMLFormElement).elements)
+      .find((el) => {
+        const element = (el as HTMLInputElement)
+        return (element.name === 'todoText')
+      }) as HTMLInputElement | undefined;
+    if (!todoText) return;
+    store.addTodo(todoText.value);
+    todoText.value = '';
   };
 
   return (
-    <fieldset role="group">
-      <input
-        type="text"
-        value={store.todoText}
-        onChange={(e) => store.setTodoText(e.target.value)}
-        onKeyUp={handleKeyPress}
-      />
-      <button onClick={store.addTodo}>
-        Add
-      </button>
-    </fieldset>
+    <form role="form" onSubmit={handleSubmit}>
+      <fieldset role="group">
+        <input
+          name="todoText"
+          type="text"
+        />
+        <button
+          type="submit"
+        >
+          Add
+        </button>
+      </fieldset>
+    </form>
   );
 });
 
