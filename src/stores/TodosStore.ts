@@ -8,7 +8,7 @@ type Todo = {
 
 class Todos {
   public todos: Todo[] = [];
-  private autoSave = true
+  public autoSave = true
 
   constructor(autosave = true) {
     makeAutoObservable(this);
@@ -51,6 +51,10 @@ class Todos {
   removeTodo = (id: number) => {
     this.todos = this.todos.filter((todo) => todo.id !== id);
     if (this.autoSave) this.saveTodos();
+  };
+
+  toggleAutoSave = () => {
+    this.autoSave = !this.autoSave;
   };
 
   loadTodos = () => {

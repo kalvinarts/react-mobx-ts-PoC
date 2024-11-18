@@ -2,7 +2,12 @@
 import React, { createContext, useContext } from "react";
 import todoStore from "../stores/TodosStore";
 
-const StoreContext = createContext<typeof todoStore>(todoStore);
+// Add your stores here
+const stores = {
+  todos: todoStore,
+};
+
+const StoreContext = createContext<typeof stores>(stores);
 
 const StoreProvider = ({ children }: { children: React.ReactNode }) => {
   const store = useContext(StoreContext);
